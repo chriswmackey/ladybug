@@ -20,7 +20,7 @@ def ashrae_climate_zone(dry_bulb_temperature, annual_precipitation=None):
             climate has the "dry" classification. If None, the climate will always
             be assumed to be humid (type "A"), which tends to be more common than
             the dry classification (type "B").
-    
+
     Returns:
         Text for the ASHRAE climate zone classification (eg. "4A").
     """
@@ -35,7 +35,7 @@ def ashrae_climate_zone(dry_bulb_temperature, annual_precipitation=None):
         'ashrae_climate_zone dry_bulb_temperature must have a timestep of 1.'
     if dbt.header.unit != 'C':
         dbt = dbt.to_unit('C')
-    
+
     # compute the number of heating and cooling degree days
     cooling_deg_days, heating_deg_days = 0, 0
     for t in dbt.values:
